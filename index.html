@@ -1,98 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Website of ZhouJinXuan24</title>
-        <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-        <style>
-            @keyframes shadow {
-                to {
-                    opacity: 1;
-                    text-shadow: 0.5px 0 10px #FFCC00;
-                }
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Website of ZhouJinXuan24</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+    <style>
+        @keyframes shadow {
+            to {
+                opacity: 1;
+                text-shadow: 1px 0 10px #FFCC00;
             }
+        }
 
-            @keyframes shadow-rev {
-                to {
-                    opacity: 0.5;
-                    text-shadow: none;
-                }
-            }
-
-            body {
-                background-color: #212529;
-                color: #ADB5BD;
-                padding: 1rem;
-            }
-
-            h1 {
-                font-family: Algerian;
-                font-size: 4rem;
-                text-align: center;
-                user-select: none;
-            }
-
-            .welcome {
-                width: fit-content;
-                font-family: Bahnschrift;
-                font-size: large;
+        @keyframes shadow-rev {
+            to {
                 opacity: 0.5;
                 text-shadow: none;
             }
+        }
 
-            #quiz {
-                border: 0.125rem double #999999BB;
-                border-radius: 0.5rem;
-                margin-left: 1rem;
-                margin-right: 1rem;
-                padding: 1rem;
-            }
+        body {
+            background-color: #212529;
+            color: #ADB5BD;
+            padding: 1rem;
+        }
 
-            #MathJax_Message {
-                display: none;
+        h1 {
+            font-family: Algerian, serif;
+            font-size: 4rem;
+            text-align: center;
+            user-select: none;
+        }
+
+        .welcome {
+            width: fit-content;
+            font-family: Bahnschrift, serif;
+            font-size: large;
+            opacity: 0.5;
+            text-shadow: none;
+        }
+
+        #quiz {
+            border: 0.125rem double #999999BB;
+            border-radius: 0.5rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding: 1rem;
+        }
+
+        #MathJax_Message {
+            display: none;
+        }
+    </style>
+    <script>
+        window.MathJax = {
+            showProcessingMessages: false,
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            TeX: {
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
             }
-        </style>
-        <script>
-            window.MathJax = {
-                showProcessingMessages: false,
-                tex2jax: {
-                    inlineMath: [['$', '$'], ['\\(', '\\)']],
-                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                    processEscapes: true
-                },
-                TeX: {
-                    extensions: ["AMSmath.js", "AMSsymbols.js"]
-                }
-            };
-        </script>
-        <script type="text/javascript" async src="mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
-    </head>
-    <body>
-        <h1>zhoujinxuan24.github.io</h1>
-        <p class="welcome">WELCOME! This is a perfect website for <span
-                style="font-size: x-large; color: #0D6EFD;">NJers</span>.</p>
-        <p class="welcome">And to get the privilege of visiting the website, you'll need a <u>password</u>.</p>
-        <p class="welcome">Solve the following problem and you can get the password:</p>
-        <div id="quiz">
-            Let $P(x)$, $Q(x)$ be polynomial functions and satisfy:
-            $$\forall x\in\mathbb{R}, P^3(x)=x^{2009}Q^3(x).$$
-            Find $P(x)$, $Q(x)$.
-        </div>
-        <script>
-            document.body.onload = () => {
-                for (let p of document.querySelectorAll("p.welcome")) {
-                    p.onmouseenter = () => p.style.animation = "shadow 0.8s linear both";
-                    p.onmouseleave = () => p.style.animation = "shadow-rev 0.5s linear both";
-                    p.onanimationend = (e) => {
-                        if (e.animationName === "shadow") {
-                            p.style.textShadow = "0.5px 0 10px #FFCC00"
-                        } else if (e.animationName === "shadow-rev") {
-                            p.style.textShadow = "none";
-                        }
+        };
+    </script>
+    <script type="text/javascript" async src="mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+  </head>
+  <body>
+    <h1>zhoujinxuan24.github.io</h1>
+    <p class="welcome">WELCOME! This is a perfect website for
+      <span style="font-size: x-large; color: #0D6EFD;">NJers</span>.
+    </p>
+    <p class="welcome">And to get the privilege of visiting the website, you'll need a
+      <u>password</u>.
+    </p>
+    <p class="welcome">Solve the following quiz, and you can get the password:</p>
+    <div id="quiz">
+      Let $P(x)$, $Q(x)$ be polynomial functions and satisfy:
+      $$\forall x\in\mathbb{R}, P^3(x)=x^{2009}Q^3(x).$$
+      Find $P(x)$, $Q(x)$.
+    </div>
+    <script>
+        document.body.onload = () => {
+            for (let p of document.querySelectorAll("p.welcome")) {
+                p.onmouseenter = () => p.style.animation = "shadow 0.8s linear both";
+                p.onmouseleave = () => p.style.animation = "shadow-rev 0.5s linear both";
+                p.onanimationend = (e) => {
+                    if (e.animationName === "shadow") {
+                        p.style.textShadow = "1px 0 10px #FFCC00"
+                    } else if (e.animationName === "shadow-rev") {
+                        p.style.textShadow = "none";
                     }
                 }
-            };
-        </script>
-    </body>
+            }
+        };
+    </script>
+  </body>
 </html>
